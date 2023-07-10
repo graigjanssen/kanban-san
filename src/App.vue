@@ -1,14 +1,12 @@
 <template>
-  <kanban-column label="To-Do" />
-  <kanban-column label="In Progress" />
-  <kanban-column label="Done" />
+  <kanban-board />
 </template>
 
 <script lang="ts">
-import KanbanColumn from "./components/KanbanColumn.vue";
+import KanbanBoard from "./components/KanbanBoard.vue";
 export default {
   components: {
-    KanbanColumn,
+    KanbanBoard,
   },
 };
 </script>
