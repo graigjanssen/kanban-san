@@ -1,13 +1,16 @@
 <template>
   <div class="task-card">
-    <h3>{{ taskName }}</h3>
+    <h3>{{ title }}</h3>
+    <p>{{ description }}</p>
   </div>
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent } from "vue";
+export default defineComponent({
   props: {
-    taskName: String,
+    title: String,
+    description: String,
   },
-};
+});
 </script>
