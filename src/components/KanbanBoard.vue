@@ -7,7 +7,17 @@
       :status="column.status"
       :tasks="state.tasks"
     />
-    <button @click="addTask">New Task</button>
+    <button @click="state.isAddTaskModalOpen = true">New Task</button>
+    <app-modal
+      v-if="state.isAddTaskModalOpen"
+      title="Add Task"
+      okButtonText="Add Task"
+      @close="state.isAddTaskModalOpen = false"
+      @submit="addTask"
+    >
+      <h3>Some fake stuff!</h3>
+      <p>Just some more fake stuff to waste time</p>
+    </app-modal>
   </div>
 </template>
 
@@ -15,16 +25,19 @@
 import { reactive } from "vue";
 import { Task, Column } from "@/types";
 import KanbanColumn from "./KanbanColumn.vue";
+import AppModal from "./elements/AppModal.vue";
 
 interface State {
   id: number;
   columns: Column[];
   tasks: Task[];
+  isAddTaskModalOpen: boolean;
 }
 
 export default {
   components: {
     KanbanColumn,
+    AppModal,
   },
   setup() {
     const state: State = reactive({
@@ -44,6 +57,7 @@ export default {
         },
       ],
       tasks: [],
+      isAddTaskModalOpen: false,
     });
 
     function addTask() {
@@ -55,6 +69,7 @@ export default {
       };
       state.id++;
       state.tasks.push(task);
+      state.isAddTaskModalOpen = false;
     }
     return { state, addTask };
   },
