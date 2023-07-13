@@ -1,15 +1,21 @@
 <template>
-  <header>
-    <h2>{{ title }}</h2>
-    <button @click="close">X</button>
-  </header>
-  <main>
-    <slot></slot>
-  </main>
-  <footer>
-    <button @click="close">{{ cancelButtonText }}</button>
-    <button @click="submit">{{ okButtonText }}</button>
-  </footer>
+  <div class="modal">
+    <header>
+      <h2>{{ title }}</h2>
+      <button class="modal-close" @click="close">x</button>
+    </header>
+    <main>
+      <slot></slot>
+    </main>
+    <footer>
+      <button class="btn btn-cancel" @click="close">
+        {{ cancelButtonText }}
+      </button>
+      <button class="btn btn-primary" @click="submit">
+        {{ okButtonText }}
+      </button>
+    </footer>
+  </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";

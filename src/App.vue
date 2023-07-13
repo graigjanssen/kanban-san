@@ -11,8 +11,5 @@ export default {
 };
 </script>
 <style lang="scss">
-#app {
-  background-color: #444;
-  color: #eee;
-}
+@import "./assets/styles/main.scss";
 </style>

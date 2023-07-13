@@ -7,7 +7,9 @@
       :status="column.status"
       :tasks="state.tasks"
     />
-    <button @click="state.isAddTaskModalOpen = true">New Task</button>
+    <button class="btn btn-primary" @click="state.isAddTaskModalOpen = true">
+      New Task
+    </button>
     <app-modal
       v-if="state.isAddTaskModalOpen"
       title="Add Task"

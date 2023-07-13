@@ -1,0 +1,36 @@
+.btn {
+  padding: .75em 1.5em;
+  border-radius: .3em;
+  font-size: 1em;
+  text-align: center;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  color: $btn-text-color;
+  font-weight: bold;
+  border: none;
+
+  &-primary {
+    background-color: $btn-color-primary;
+    &:hover {
+      background-color: darken($btn-color-primary, 10%);
+    }
+  }
+  &-secondary {
+    background-color: $btn-color-secondary;
+    &:hover {
+      background-color: darken($btn-color-secondary, 10%);
+    }
+  }
+  &-danger {
+    background-color: $btn-color-danger;
+    &:hover {
+      background-color: darken($btn-color-danger, 10%);
+    }
+  }
+  &-cancel {
+    background-color: $btn-color-cancel;
+    &:hover {
+      background-color: darken($btn-color-cancel, 10%);
+    }
+  }
+}
