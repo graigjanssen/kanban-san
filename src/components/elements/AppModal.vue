@@ -7,14 +7,6 @@
     <main>
       <slot></slot>
     </main>
-    <footer>
-      <button class="btn btn-cancel" @click="close">
-        {{ cancelButtonText }}
-      </button>
-      <button class="btn btn-primary" @click="submit">
-        {{ okButtonText }}
-      </button>
-    </footer>
   </div>
 </template>
 <script lang="ts">
@@ -25,26 +17,13 @@ export default defineComponent({
       type: String,
       required: true,
     },
-    okButtonText: {
-      type: String,
-      required: false,
-      default: "OK",
-    },
-    cancelButtonText: {
-      type: String,
-      required: false,
-      default: "Cancel",
-    },
   },
-  emits: ["submit", "close"],
+  emits: ["close"],
   setup(props, { emit }) {
-    const submit = () => {
-      emit("submit");
-    };
     const close = () => {
       emit("close");
     };
-    return { submit, close };
+    return { close };
   },
 });
 </script>
