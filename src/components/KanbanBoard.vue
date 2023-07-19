@@ -10,13 +10,11 @@
     <button class="btn btn-primary" @click="state.isAddTaskModalOpen = true">
       New Task
     </button>
-    <app-modal
+    <add-task-modal
       v-if="state.isAddTaskModalOpen"
-      title="Add Task"
       @close="state.isAddTaskModalOpen = false"
-    >
-      <add-task @cancel="state.isAddTaskModalOpen = false" @submit="addTask" />
-    </app-modal>
+      @submit="addTask"
+    />
   </div>
 </template>
 
@@ -24,8 +22,7 @@
 import { reactive } from "vue";
 import { Task, Column } from "@/types";
 import KanbanColumn from "./KanbanColumn.vue";
-import AppModal from "./elements/AppModal.vue";
-import AddTask from "./AddTask.vue";
+import AddTaskModal from "./AddTaskModal.vue";
 interface State {
   id: number;
   columns: Column[];
@@ -36,8 +33,7 @@ interface State {
 export default {
   components: {
     KanbanColumn,
-    AppModal,
-    AddTask,
+    AddTaskModal,
   },
   setup() {
     const state: State = reactive({
@@ -65,8 +61,8 @@ export default {
       const task: Task = {
         id: state.id,
         status: "to-do",
-        title: `Dummy Task #${state.id}`,
-        description: `Description for Dummy Task #${state.id}`,
+        title: formData.title,
+        description: formData.description,
       };
       state.id++;
       state.tasks.push(task);
