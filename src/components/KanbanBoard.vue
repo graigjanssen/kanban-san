@@ -21,10 +21,10 @@
 <script lang="ts">
 import { reactive } from "vue";
 import { Task, Column } from "@/types";
+import { generateId } from "@/services/idService";
 import KanbanColumn from "./KanbanColumn.vue";
 import AddTaskModal from "./AddTaskModal.vue";
 interface State {
-  id: number;
   columns: Column[];
   tasks: Task[];
   isAddTaskModalOpen: boolean;
@@ -37,7 +37,6 @@ export default {
   },
   setup() {
     const state: State = reactive({
-      id: 1,
       columns: [
         {
           label: "To-Do",
@@ -57,14 +56,12 @@ export default {
     });
 
     function addTask(formData) {
-      console.log("formData: ", formData);
       const task: Task = {
-        id: state.id,
+        id: generateId(),
         status: "to-do",
         title: formData.title,
         description: formData.description,
       };
-      state.id++;
       state.tasks.push(task);
       state.isAddTaskModalOpen = false;
     }
