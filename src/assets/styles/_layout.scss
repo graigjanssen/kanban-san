@@ -4,8 +4,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 40%;
-  height: 40%;
+  width: 35%;
+  min-height: 25%;
+  max-height: 45%;
   overflow: auto;
   padding: 8px;
   border-radius: 5px;
@@ -26,13 +27,27 @@
       color: $text-color-primary;
     }
   }
+  main {
+    padding: 16px;
+  }
   footer {
     display: flex;
     justify-content: flex-end;
-    padding: 8px 0;
+    padding: 12px 0;
     border-top: 1px solid darken($bg-color-primary, 50%);
     button {
       margin: 0 8px;
     }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: .75em;
   }
 }

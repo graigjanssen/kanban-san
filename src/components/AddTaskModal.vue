@@ -1,18 +1,25 @@
 <template>
   <app-modal title="Add Task" @close="close">
-    <form @submit.prevent="submit">
+    <form @submit.prevent="submit" class="form add-task-form">
       <div class="form-group">
         <label for="title">Task Name:</label>
-        <input id="title" v-model="form.title" type="text" required />
+        <input
+          id="title"
+          v-model="form.title"
+          type="text"
+          class="field"
+          required
+        />
       </div>
       <div class="form-group">
         <label for="description">Description:</label>
-        <input
+        <textarea
           id="description"
           v-model="form.description"
-          type="text"
+          rows="3"
+          class="field"
           required
-        />
+        ></textarea>
       </div>
     </form>
     <template v-slot:footer>
@@ -48,3 +55,9 @@ export default defineComponent({
   },
 });
 </script>
+<style scoped lang="scss">
+.add-task-form {
+  width: 80%;
+  margin: 0 auto;
+}
+</style>
